@@ -1,0 +1,143 @@
+{'tags': {'car': {'count': 64,
+                  'longest_track': '0199c9e4-7106-7ced-949d-8ddba2bf87e5'},
+          'person': {'count': 28,
+                     'longest_track': '0199c9e4-9d13-7415-837b-f42458d97996'},
+          'safety_barrier': {'count': 4,
+                             'longest_track': '0199c9e4-9a0d-7e92-b325-94fe454e2f58'},
+          'vehicle': {'count': 4,
+                      'longest_track': '0199c9e4-99b4-70e1-8ada-2277cd93b580'}},
+ 'tracks': {'0199c9e4-7106-7ced-949d-8ddba2bf87e5': {'detections': 14,
+                                                     'length': 56.1,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.5074804542857143,
+                                                     'zones': ['Intersection',
+                                                               'Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light',
+                                                               'Parking Spot',
+                                                               'Pedetrian '
+                                                               'Crossing 2',
+                                                               'Pedestrian '
+                                                               'Crossing 3']},
+            '0199c9e4-73f7-70ec-a937-e82c1f1be8f4': {'detections': 17,
+                                                     'length': 52.05,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.5490688417647059,
+                                                     'zones': ['Intersection',
+                                                               'Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light',
+                                                               'Parking Spot',
+                                                               'Pedetrian '
+                                                               'Crossing 2',
+                                                               'Pedestrian '
+                                                               'Crossing 3',
+                                                               'Stop Light 2']},
+            '0199c9e4-73f7-7cec-aca3-7011168d66c8': {'detections': 14,
+                                                     'length': 52.75,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.4364580307142857,
+                                                     'zones': ['Intersection',
+                                                               'Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light',
+                                                               'Parking Spot',
+                                                               'Pedetrian '
+                                                               'Crossing 2',
+                                                               'Pedestrian '
+                                                               'Crossing 3',
+                                                               'Stop Light 2']},
+            '0199c9e4-7838-7988-bcc0-192345e4347b': {'detections': 7,
+                                                     'length': 19.654,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.60150664,
+                                                     'zones': ['Intersection',
+                                                               'Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light',
+                                                               'Parking Spot',
+                                                               'Pedetrian '
+                                                               'Crossing 2',
+                                                               'Pedestrian '
+                                                               'Crossing 3',
+                                                               'Stop Light 2']},
+            '0199c9e4-799a-775d-9d4b-a11d7b4f319c': {'detections': 6,
+                                                     'length': 25.405,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.38693207,
+                                                     'zones': ['Pedetrian '
+                                                               'Crossing 2',
+                                                               'Pedestrian '
+                                                               'Crossing 3']},
+            '0199c9e4-79c1-70af-a8d8-cb8c72b2b318': {'detections': 15,
+                                                     'length': 47.799,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.4502770079999999,
+                                                     'zones': ['Intersection',
+                                                               'Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light',
+                                                               'Parking Spot',
+                                                               'Pedetrian '
+                                                               'Crossing 2',
+                                                               'Pedestrian '
+                                                               'Crossing 3',
+                                                               'Stop Light 2']},
+            '0199c9e4-79e7-73c4-bc97-aba01167a0f7': {'detections': 12,
+                                                     'length': 47.599,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.5207728366666667,
+                                                     'zones': ['Intersection',
+                                                               'Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light',
+                                                               'Parking Spot',
+                                                               'Pedetrian '
+                                                               'Crossing 2',
+                                                               'Pedestrian '
+                                                               'Crossing 3',
+                                                               'Stop Light 2']},
+            '0199c9e4-98c3-74b9-9d90-3ebf59f25a94': {'detections': 10,
+                                                     'length': 42.749,
+                                                     'tag': 'car',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.42783132099999993,
+                                                     'zones': ['Intersection',
+                                                               'Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light',
+                                                               'Pedetrian '
+                                                               'Crossing 2',
+                                                               'Stop Light 2']},
+            '0199c9e4-99b4-70e1-8ada-2277cd93b580': {'detections': 9,
+                                                     'length': 37.553,
+                                                     'tag': 'vehicle',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.9131756044444445,
+                                                     'zones': ['Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light 2']},
+            '0199c9e4-9a0d-7e92-b325-94fe454e2f58': {'detections': 1,
+                                                     'length': 4.251,
+                                                     'tag': 'safety_barrier',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.73028994,
+                                                     'zones': ['Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light 2']},
+            '0199c9e4-9d13-7415-837b-f42458d97996': {'detections': 10,
+                                                     'length': 19.603,
+                                                     'tag': 'person',
+                                                     'thumbnailUrl': 'https://api.microsoft.worlds.io/asset/dl/video/34FXdZCDUHC2vmd966POPw1ec92ROiqh/77ad3642-88ed-460c-95d7-3c968577ad41/77ad3642-88ed-460c-95d7-3c968577ad41.m3u8?getThumbnail=true',
+                                                     'track_confidence_average': 0.884398576,
+                                                     'zones': ['Pedestrian '
+                                                               'Crossing',
+                                                               'Stop Light '
+                                                               '2']}}}

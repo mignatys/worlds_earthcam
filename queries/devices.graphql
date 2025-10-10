@@ -1,0 +1,17 @@
+query devices($filter: FilterDeviceInput!, $first: Int!) {
+  devices(filter: $filter, first: $first) {
+    edges {
+			node{
+				address
+				dataSource{
+					id
+					name
+				}
+			}
+		}
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

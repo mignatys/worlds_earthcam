@@ -1,0 +1,30 @@
+query tracks($filter: FilterTrackInput!, $first: Int!) {
+  tracks(filter: $filter, first: $first) {
+    edges {
+			node{
+			    id
+				dataSource{
+					id
+					name
+				}
+				video{
+					thumbnailUrl
+				}
+				tag
+				startTime
+				endTime
+				detections{
+					metadata
+					timestamp
+					zones{
+						name
+					}
+				}
+			}
+		}
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

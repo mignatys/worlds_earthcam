@@ -1,22 +1,40 @@
 services:
-  api:
-    build: ./api
-    container_name: worlds_api
+  app:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    container_name: worlds_app
     ports:
       - "5050:5000"
+    depends_on:
+      - mongo
 
   grafana:
     image: grafana/grafana:latest
     container_name: worlds_grafana
     environment:
       GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: admin
-      GF_INSTALL_PLUGINS: marcusolsson-json-datasource
+      GF_SECURITY_ADMIN_PASSWORD: password
+      GF_INSTALL_PLUGINS: yesoreyeram-infinity-datasource
     volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning
-      - ./grafana/plugins:/var/lib/grafana/plugins
+      - ./grafana/data:/var/lib/grafana
     ports:
       - "3000:3000"
     depends_on:
-      - api
+      - app
+      - mongo
 
+  mongo:
+    image: mongo:latest
+    container_name: worlds_mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

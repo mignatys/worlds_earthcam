@@ -1,0 +1,45 @@
+query dataSources($filter: FilterDataSourceInput!, $first: Int!) {
+  dataSources(filter: $filter, first: $first) {
+    edges {
+			node{
+				id
+				name
+				type
+				labels
+				device{
+					id
+					name
+					site{
+						name
+
+					}
+					address
+				}
+			}
+		}
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+
+{
+	"filter": {
+		"type": {
+			"eq": "VIDEO_DEVICE"
+		}
+	},
+	"first": 50,
+	"after": null,
+	"sort": [
+		{
+			"field": "TRACK_START_TIME",
+			"direction": "ASC"
+		},
+		{
+			"field": "ID",
+			"direction": "ASC"
+		}
+	]
+}
