@@ -6,3 +6,13 @@ datasources:
     url: http://app:5000
     isDefault: true
 
+  - name: WorldsDB
+    type: postgres
+    access: proxy
+    url: db:5432
+    database: worlds
+    user: grafana
+    secureJsonData:
+      password: grafana
+    jsonData:
+      sslmode: disable

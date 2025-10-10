@@ -7,7 +7,7 @@ services:
     ports:
       - "5050:5000"
     depends_on:
-      - mongo
+      - postgres
 
   grafana:
     image: grafana/grafana:latest
@@ -23,18 +23,22 @@ services:
       - "3000:3000"
     depends_on:
       - app
-      - mongo
+      - postgres
 
-  mongo:
-    image: mongo:latest
-    container_name: worlds_mongo
+  postgres:
+    image: postgres:16
+    container_name: worlds_postgres
+    restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-    ports:
-      - "27017:27017"
+      POSTGRES_USER: grafana
+      POSTGRES_PASSWORD: grafana
+      POSTGRES_DB: worlds
     volumes:
-      - mongo-data:/data/db
+      - ./db:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
 volumes:
   mongo-data:
+  db_data:
