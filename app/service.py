@@ -1,9 +1,8 @@
-import uuid
 from datetime import datetime, timedelta, timezone
 from pprint import pprint
 
 from worlds_api_client import WorldsAPIClient
-from db.crud import store_tags_series, store_top_tracks, store_zones
+from db.crud import store_tags_series, store_top_tracks, store_zones, save_devices
 
 def aggregate_tracks(client: WorldsAPIClient, data_source_id: str, minutes: int = 60, max_tracks: int = 5):
     """
@@ -25,7 +24,7 @@ def aggregate_tracks(client: WorldsAPIClient, data_source_id: str, minutes: int 
     }
 
     base_record = {
-        "deviceId": data_source_id,
+        "device_id": data_source_id,
         "timestamp": end_time.isoformat(timespec="seconds")
     }
 
@@ -79,12 +78,12 @@ def aggregate_tracks(client: WorldsAPIClient, data_source_id: str, minutes: int 
             # --- Track details ---
             track_details[track_id] = {
                 "id": track_id,
-                "deviceId": data_source_id,
+                "device_id": data_source_id,
                 "timestamp": base_record["timestamp"],
                 "length": length_sec,
                 "detections": len(detections),
                 "tag": tag,
-                "thumbnailUrl": thumbnail,
+                "thumbnail_url": thumbnail,
                 "track_confidence_average": avg_conf,
                 "zones": list(zones),
             }
@@ -108,7 +107,6 @@ def aggregate_tracks(client: WorldsAPIClient, data_source_id: str, minutes: int 
     # --- Prepare final outputs ---
     # Tags
     tags_output = {
-        "uuid": str(uuid.uuid4()),
         **base_record,
         "tags": [{"tag": t, "count": c} for t, c in sorted(tag_counts.items(), key=lambda kv: kv[1], reverse=True)]
     }
@@ -123,9 +121,9 @@ def aggregate_tracks(client: WorldsAPIClient, data_source_id: str, minutes: int 
     }
 
     # --- Persist to DB ---
-    #store_tags_series(tags_output)
-    #store_top_tracks(data_source_id, sorted_tracks)
-    #store_zones(data_source_id, zones_output["zones"], zones_output["timestamp"])
+    store_tags_series(tags_output)
+    store_top_tracks(data_source_id, sorted_tracks)
+    store_zones(data_source_id, zones_output["zones"], zones_output["timestamp"])
 
     return {
         "tags": tags_output,
@@ -134,17 +132,30 @@ def aggregate_tracks(client: WorldsAPIClient, data_source_id: str, minutes: int 
     }
 
 def get_devices_list(client):
+    flattened_list = []
     variables = client.get_default_variables()
     variables['filter'] = {
         "address": {"like": "earthcam"},
     }
+
     devices = client.execute_query("devices", variables)
-    return client.extract_nodes(devices)
+    for item in client.extract_nodes(devices):
+        ds = item.pop('dataSource')
+        flattened_list.append({**item, **ds})
+
+    return flattened_list
 
 def main() :
     client = WorldsAPIClient()
     data_source_id = "4ae953d5-d3a6-4f70-8b5a-0873a40f518b"
 
+    devices = get_devices_list(client)
+    pprint(devices)
+    save_devices(devices)
     result = aggregate_tracks(client, data_source_id, minutes=60, max_tracks=5)
     pprint(result)
+
+    #tracks = get_top_tracks(data_source_id)
+    #pprint(tracks)
+
 main()
