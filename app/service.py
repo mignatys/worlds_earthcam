@@ -155,7 +155,4 @@ def main() :
     result = aggregate_tracks(client, data_source_id, minutes=60, max_tracks=5)
     pprint(result)
 
-    #tracks = get_top_tracks(data_source_id)
-    #pprint(tracks)
-
 main()

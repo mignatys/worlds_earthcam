@@ -1,0 +1,12 @@
+mutation createEvent($event: CreateEventInput!) {
+    createEvent(event: $event) {
+        id
+        type
+        subType
+        startTime
+        endTime
+        draft
+        priority
+        metadata
+    }
+}

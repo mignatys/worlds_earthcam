@@ -53,35 +53,3 @@ query detections($filter: FilterDetectionInput!, $first: Int!) {
 	]
 }
 
-
-{
-    tags: {
-        <tag_name>:<number of occurances>
-        longest_track: id
-    }
-    tracks:
-        id: {
-            thumbnailUrl: <value>
-            length: <startTime-endTime>
-            detections: <count the length of detections list>
-            tag: <tag value>
-            track_confidence_average: <average value of confidence levels of all detections>
-            zones: {set of zones from all detections, no dups}
-        }
-    }
-}
-
-keep top 10 longest tracks or atleast one per tag if there are more than 10 tags
-
-{
-    'tags': {
-        'car': {
-            count: 28,
-            longest_track': '0199c70b-c77f-79ef-99b5-672c778143a6',
-        },
-        'person': {
-            count: 60,
-            longest_track': '0199c70b-e1f6-7dfd-ba37-397896349580',
-        }
-    }
-}

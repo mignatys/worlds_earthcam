@@ -1,6 +1,6 @@
-gql[all]>=3.0.0
+gql[all]==3.4.0
 aiohttp>=3.8
-websockets>=11.0
+websockets
 asyncpg>=0.27
 streamlit
 pandas

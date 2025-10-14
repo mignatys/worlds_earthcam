@@ -1,0 +1,24 @@
+
+{
+  "type": "connection_init",
+  "payload": {
+    "x-token-id": "88f74e73-a6d7-419d-8c32-592f4164f941",
+    "x-token-value": "vr7wedFDUFkdQaTmHbvI"
+  }
+}
+
+{
+  "id": "4",
+  "type": "subscribe",
+  "payload": {
+    "operationName": "detectionActivity",
+    "query": "subscription detectionActivity($filter: FilterDetectionActivityInput) { detectionActivity(filter: $filter) { track { dataSource{ id name } tag } timestamp } }",
+    "variables": {
+      "filter": {
+        "dataSourceId": {
+          "eq": "4ae953d5-d3a6-4f70-8b5a-0873a40f518b"
+        }
+      }
+    }
+  }
+}

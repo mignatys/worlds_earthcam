@@ -1,0 +1,12 @@
+subscription detectionActivity($filter: FilterDetectionActivityInput) {
+  detectionActivity(filter: $filter) {
+    track {
+        dataSource{
+            id
+            name
+        }
+        tag
+    }
+    timestamp
+  }
+}

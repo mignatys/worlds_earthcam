@@ -32,12 +32,27 @@ CREATE TABLE IF NOT EXISTS devices (
     address TEXT
 );
 
-/*
-CREATE TABLE IF NOT EXISTS alerts (
-    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    device_id TEXT NOT NULL,
-    timestamp TIMESTAMPTZ DEFAULT now(),
-    tag TEXT,
-    detection JSONB
+CREATE TABLE IF NOT EXISTS events (
+    id TEXT PRIMARY KEY,
+    event_producer_id TEXT NOT NULL,
+    type TEXT NOT NULL,
+    sub_type TEXT NOT NULL,
+    start_time TIMESTAMPTZ NOT NULL,
+    end_time TIMESTAMPTZ NOT NULL,
+    draft BOOLEAN NOT NULL,
+    priority TEXT NOT NULL,
+    metadata JSONB
 );
-*/
+
+CREATE TABLE detection_events (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    timestamp           TIMESTAMPTZ NOT NULL,
+    source_id           TEXT        NOT NULL,
+    source_name         TEXT        NOT NULL,
+    tag                 TEXT,
+    event_count         SMALLINT    DEFAULT 1
+);
+CREATE EXTENSION IF NOT EXISTS timescaledb;
+SELECT create_hypertable('detection_events', 'timestamp');
+CREATE INDEX idx_source_id_time ON detection_events (source_id, timestamp DESC);
+SELECT add_retention_policy('detection_events', INTERVAL '1 days');
