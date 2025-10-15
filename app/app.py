@@ -3,7 +3,7 @@ from itertools import count
 from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 
-from service import get_devices_list, aggregate_tracks
+from dashboard_service import get_devices_list, aggregate_tracks
 from worlds_api_client import WorldsAPIClient
 
 app = FastAPI(title="Worlds AI API Demo")

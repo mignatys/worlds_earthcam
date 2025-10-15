@@ -1,11 +1,29 @@
 services:
-  app:
+  #app:
+  #  build:
+  #    context: .
+  #    dockerfile: ./app/Dockerfile
+  #  container_name: worlds_app
+  #  ports:
+  #    - "5050:5000"
+  #  depends_on:
+  #    - db
+
+  dashboard-service:
     build:
       context: .
       dockerfile: ./app/Dockerfile
-    container_name: worlds_app
-    ports:
-      - "5050:5000"
+    container_name: worlds_dashboard_service
+    command: ["python", "dashboard_service.py"]
+    depends_on:
+      - db
+
+  subscription-service:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    container_name: worlds_subscription_service
+    command: ["python", "subscription_service.py"]
     depends_on:
       - db
 
@@ -22,8 +40,9 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - app
       - db
+      - dashboard-service
+      - subscription-service
 
   db:
     image: postgres:16
