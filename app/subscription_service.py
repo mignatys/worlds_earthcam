@@ -47,8 +47,11 @@ def alert_on_yellow_vest(detection: Dict[str, Any]):
     # If the event is for a 'yellow_vest', create and save a formal Event directly
     if detection["tag"] == "yellow_vest":
         try:
-            start_time_iso = detection.get("detectionActivity", {}).get("timestamp")
-            start_time = datetime.fromisoformat(start_time_iso.replace("Z", "+00:00"))
+            #logger.error(f"MMM: {detection}")
+
+            #start_time_iso = detection.get("timestamp")
+            #start_time = datetime.fromisoformat(start_time_iso.replace("Z", "+00:00"))
+            start_time = detection.get("timestamp")
 
             # DEPRECATED: Mutation block was removed to not pollute worlds.io DB
             # All alerts generated with producer_id below were auto inserted by

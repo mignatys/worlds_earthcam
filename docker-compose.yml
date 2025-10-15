@@ -1,14 +1,4 @@
 services:
-  #app:
-  #  build:
-  #    context: .
-  #    dockerfile: ./app/Dockerfile
-  #  container_name: worlds_app
-  #  ports:
-  #    - "5050:5000"
-  #  depends_on:
-  #    - db
-
   dashboard-service:
     build:
       context: .
@@ -34,6 +24,8 @@ services:
       GF_SECURITY_ADMIN_USER: admin
       GF_SECURITY_ADMIN_PASSWORD: password
       GF_INSTALL_PLUGINS: yesoreyeram-infinity-datasource
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
     volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning
       - ./grafana/data:/var/lib/grafana
@@ -56,7 +48,7 @@ services:
       - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - db_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
 volumes:
   db_data:
