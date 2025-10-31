@@ -1,13 +1,13 @@
 # Take home Interview assignment from Worlds.io
 Worlds API consumes a video stream and provides analytics on objects and scense observed in the video<br>
 The project below demonstrates:
-- integration with WORLDS GraphQL endpoint to consume fata
-- subscription to a stream
+- integration with WORLDS GraphQL endpoint to consume data
+- subscription to a GraphQL stream
 - producing alerts for yellow vests
-- generation of mutations to provide feedback to the API
-- data agregation of consumed data
-- generation and storage of timeseries in DB
-- Docker containeresation
+- generation of GraphQl mutations to provide feedback to the API
+- data aggregation of consumed data for Dashboard & DB
+- generation and storage of time-series in DB
+- Docker containerization
 - Displaying data in human readable format in Graphana
 
 # worlds_earthcam
