@@ -1,4 +1,14 @@
-Take home Interview assignment from Worlds.io
+# Take home Interview assignment from Worlds.io
+Worlds API consumes a video stream and provides analytics on objects and scense observed in the video<br>
+The project below demonstrates:
+- integration with WORLDS GraphQL endpoint to consume fata
+- subscription to a stream
+- producing alerts for yellow vests
+- generation of mutations to provide feedback to the API
+- data agregation of consumed data
+- generation and storage of timeseries in DB
+- Docker containeresation
+- Displaying data in human readable format in Graphana
 
 # worlds_earthcam
 worlds.io earthcam object tracking and stats
@@ -10,19 +20,20 @@ WORLDS_TOKEN_VALUE=<toke_value>
 
 2) docker-compose up -build
 
-#Project description
+# Project description
 
 Dashboard(Demo):
 https://worlds.miglabs.org/d/ad2pz54/worlds-io?orgId=1&from=now-3h&to=now&timezone=browser
 
 System components:
 
-1app/subscription_service
-2)app/dahsboard_service
-3)postgres database
-4)graphana dahsbard
+- app/subscription_service
+- app/dahsboard_service
+- postgres database
+- graphana dahsbard
 
 Subscription service
+
 - subscribes to detections and populates detection_events table (db keeps 24 hours of data only)
 - commits batches of 300 detections to db
 - aggregates the number of times the tags were seen in the batch, then commits to preserve space
@@ -34,6 +45,7 @@ Subscription service
 - populates the Detections time series and yellow vest detection count widgets in grafana dashboard
 
 Dashboard service
+
 - Runs once an hour against Tracks for a sourceId, pulls 1 hour of data, while consuming all api pages.
 - Populates zones table with a list of zones seen over the last hour (replaced every hour)
 - populates top_tracks table with top 5 longest tracks based on track duration (replaced every hour)
@@ -41,4 +53,5 @@ Dashboard service
 - populates total tags, total tags time series, top5 tracks, and observed zones widgets in grafana
 
 grafana
-- Initially added a variable to show stats for all sourceId of Earthcam group; however, only Bo
+
+- See statistic for Burbon Street Camera (The only Earthcam with data stream)
